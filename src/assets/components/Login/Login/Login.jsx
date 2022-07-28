@@ -1,18 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-    useSignInWithGoogle,
-    useSignInWithFacebook,
-    useSignInWithGithub,
-} from "react-firebase-hooks/auth";
-import auth from "../../../../firebase.init";
+import Loading from "../../Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
+
 const Login = () => {
-    const [signInWithGoogle, googleuser, googleloading, googleerror] =
-        useSignInWithGoogle(auth);
-    const [signInWithFacebook, facebookuser, facebookoading, facebookerror] =
-        useSignInWithFacebook(auth);
-    const [signInWithGithub, githubuser, githubloading, githuberror] =
-        useSignInWithGithub(auth);
+    
     return (
         <div className="flex h-screen justify-center items-center">
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -33,44 +25,23 @@ const Login = () => {
                         Log In
                     </button>
                     <label className="label">
-                        Already Have an Account?
-                        <a
-                            as={Link}
+                        Doesn't Have an Account?
+                        <Link
                             to="/register"
                             className="label-text-alt link link-hover text-secondary text-lg"
                         >
                             Please Register
-                        </a>
+                        </Link>
                     </label>
                     <label className="label">
                         Forgot Password?
                         <a
-                            href="#"
                             className="label-text-alt link link-hover text-secondary text-lg"
                         >
                             Forgot password
                         </a>
                     </label>
-                    <div className="divider">OR</div>
-                    <p>{facebookerror || googleerror || githuberror}</p>
-                    <button
-                        className="btn btn-outline btn-primary"
-                        onClick={() => signInWithGoogle()}
-                    >
-                        Sign In with Google
-                    </button>
-                    <button
-                        className="btn btn-outline btn-secondary"
-                        onClick={() => signInWithFacebook()}
-                    >
-                        Sign In with Facebook
-                    </button>
-                    <button
-                        className="btn btn-outline btn-accent"
-                        onClick={() => signInWithGithub()}
-                    >
-                        Sign In with Github
-                    </button>
+                    <SocialLogin  />
                 </div>
             </div>
         </div>
