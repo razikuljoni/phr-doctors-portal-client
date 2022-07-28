@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const Navbar = () => {
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(false);
     const menuItem = (
         <>
             <li>
@@ -15,10 +15,10 @@ const Navbar = () => {
                 <Link to="/review">Reviews</Link>
             </li>
             <li>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">Contact</Link>
             </li>
             <li>
-                <Link to="/about">About Us</Link>
+                <Link to="/about">About</Link>
             </li>
         </>
     );
@@ -53,16 +53,15 @@ const Navbar = () => {
                     Doctors Portal
                 </a>
             </div>
-            <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">{menuItem}</ul>
-            </div>
-            <div className="">
+            <div className="navbar-end">
+                <ul className="menu menu-horizontal  hidden lg:flex p-0">{menuItem}</ul>
+                <div className="grid place-items-end">
                 {user ? (
                     <ul className="menu menu-horizontal p-0">
                         <li tabIndex="0">
                             <a>
-                                <div class="avatar">
-                                    <div class="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <div className="avatar">
+                                    <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         <img src="https://placeimg.com/192/192/people" />
                                     </div>
                                 </div>
@@ -89,6 +88,40 @@ const Navbar = () => {
                     </Link>
                 )}
             </div>
+            </div>
+            {/* <div className="grid place-items-end">
+                {user ? (
+                    <ul className="menu menu-horizontal p-0">
+                        <li tabIndex="0">
+                            <a>
+                                <div className="avatar">
+                                    <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img src="https://placeimg.com/192/192/people" />
+                                    </div>
+                                </div>
+                                <svg
+                                    className="fill-current"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                                </svg>
+                            </a>
+                            <ul className="p-2">
+                                <li>
+                                    <a className="hover:btn-warning">Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                ) : (
+                    <Link to="/login" className="btn btn-primary">
+                        Login
+                    </Link>
+                )}
+            </div> */}
         </div>
     );
 };

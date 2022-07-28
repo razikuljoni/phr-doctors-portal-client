@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AppointmentBanner from "../../assets/components/AppointmentBanner/AppointmentBanner";
-import AvailableAppointments from "../../assets/components/AvailableAppointments/AvailableAppointments";
+import AvailableAppointments from "../../assets/components/AvailableAppointments/AvailableAppointments/AvailableAppointments";
 import Footer from "../../assets/components/Footer/Footer";
 
 const Appointment = () => {

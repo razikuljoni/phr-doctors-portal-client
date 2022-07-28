@@ -2,7 +2,10 @@ import React from "react";
 import appointment from "../../images/appointment.png";
 const ContactUs = () => {
     return (
-        <section style={{background: `url(${appointment})`}} className="flex items-center justify-center p-20">
+        <section
+            style={{ background: `url(${appointment})` }}
+            className="flex items-center justify-center p-20"
+        >
             <div>
                 <h3 className="text-primary font-bold text-center">
                     Contact Us
@@ -12,15 +15,15 @@ const ContactUs = () => {
                     <input
                         type="email"
                         placeholder="Email Address"
-                        class="input input-bordered input-success w-full max-w-md"
+                        className="input input-bordered input-success w-full max-w-md"
                     />
                     <input
                         type="text"
                         placeholder="Subject"
-                        class="input input-bordered input-success w-full max-w-md mt-5"
+                        className="input input-bordered input-success w-full max-w-md mt-5"
                     />
                     <textarea
-                        class="textarea textarea-success w-full max-w-md mt-5"
+                        className="textarea textarea-success w-full max-w-md mt-5"
                         placeholder="Message"
                     ></textarea>
                     <button className="btn btn-primary uppercase mt-4 block mx-auto text-white font-bold bg-gradient-to-r from-secondary to-primary">

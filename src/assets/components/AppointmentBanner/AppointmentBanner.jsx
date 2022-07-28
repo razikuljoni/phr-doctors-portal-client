@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import chair from "../../images/chair.png";
+import React from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import chair from "../../images/chair.png";
 
 const AppointmentBanner = ({selectedDate, setSelectedDate}) => {
     
     return (
-        <div class="hero min-h-screen ">
-            <div class="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero min-h-screen ">
+            <div className="hero-content flex-col lg:flex-row-reverse">
                 <img
                     src={chair}
-                    class="max-w-md rounded-lg shadow-2xl"
+                    className="max-w-md rounded-lg shadow-2xl"
                     alt="dentist chair"
                 />
                 <div>

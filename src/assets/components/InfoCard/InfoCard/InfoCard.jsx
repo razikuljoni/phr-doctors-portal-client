@@ -2,12 +2,14 @@ import React from "react";
 
 const InfoCard = ({ img, cardTitle, cardColor }) => {
     return (
-        <div class={`card lg:card-side shadow-xl bg-accent px-6 ${cardColor}`}>
+        <div
+            className={`card lg:card-side shadow-xl bg-accent px-6 ${cardColor}`}
+        >
             <figure>
                 <img src={img} alt="Album" />
             </figure>
-            <div class="card-body text-white">
-                <h2 class="card-title">{cardTitle}</h2>
+            <div className="card-body text-white">
+                <h2 className="card-title">{cardTitle}</h2>
                 <p>Click the button to listen on Spotiwhy app.</p>
             </div>
         </div>
