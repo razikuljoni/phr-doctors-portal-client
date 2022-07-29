@@ -8,9 +8,13 @@ const MakeAppointment = () => {
             className="flex items-center justify-center my-40"
         >
             <div className="flex-1">
-                <img className="-mt-40" src={doctor} alt="" />
+                <img
+                    className="lg:-mt-40 lg:w-full hidden md:block"
+                    src={doctor}
+                    alt=""
+                />
             </div>
-            <div className="flex-1">
+            <div className=" flex-auto m-5 md:m-0 md:flex-1">
                 <h3 className="text-primary font-bold">Appointment</h3>
                 <h1 className="text-white text-3xl my-4">
                     Make an appointment today

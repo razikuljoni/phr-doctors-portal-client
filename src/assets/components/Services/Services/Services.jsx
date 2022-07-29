@@ -1,9 +1,9 @@
 import React from "react";
-import fluoride from "../../../images/fluoride.png";
 import cavity from "../../../images/cavity.png";
+import fluoride from "../../../images/fluoride.png";
+import treatment from "../../../images/treatment.png";
 import whitening from "../../../images/whitening.png";
 import Service from "../Service/Service";
-import treatment from "../../../images/treatment.png";
 const Services = () => {
     const services = [
         {
@@ -30,7 +30,7 @@ const Services = () => {
     ];
     return (
         <div className="my-20 mx-12">
-            <div className="text-center">
+            <div className="text-center pb-14">
                 <h1 className="text-primary uppercase font-bold">
                     Our Services
                 </h1>
@@ -38,21 +38,21 @@ const Services = () => {
             </div>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-16">
                 {services.map((service) => (
-                    <Service service={service} />
+                    <Service key={service._id} service={service} />
                 ))}
             </div>
-            <div className="hero min-h-screen px-24">
+            <div className="hero min-h-screen px-0 sm:px-24">
                 <div className="hero-content flex-col lg:flex-row">
                     <img
                         src={treatment}
-                        className="max-w-sm rounded-lg shadow-2xl"
+                        className="w-full max-w-md rounded-lg shadow-2xl"
                         alt="service img"
                     />
-                    <div className="ml-10">
+                    <div className="ml-10 pt-10 w-full">
                         <h1 className="text-5xl font-bold">
                             Exceptional Dental Care, on Your Terms
                         </h1>
-                        <p className="py-6">
+                        <p className="py-6 ">
                             Provident cupiditate voluptatem et in. Quaerat
                             fugiat ut assumenda excepturi exercitationem quasi.
                             In deleniti eaque aut repudiandae et a id nisi.

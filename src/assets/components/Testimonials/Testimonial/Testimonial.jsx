@@ -7,7 +7,7 @@ const Testimonial = ({ review }) => {
                 <p>{review.description}</p>
                 <div className="flex items-center mt-3">
                     <div className="avatar pr-5">
-                        <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="w-16 h-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img
                                 src="https://placeimg.com/192/192/people"
                                 alt=""

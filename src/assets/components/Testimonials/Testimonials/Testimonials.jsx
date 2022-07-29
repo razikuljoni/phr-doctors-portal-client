@@ -35,7 +35,7 @@ const Testimonials = () => {
     return (
         <section className="my-48 mx-12">
             <div className="flex justify-between">
-                <div>
+                <div className="mb-14">
                     <h3 className="text-primary font-bold">Testimonial</h3>
                     <h1 className="text-3xl">What Our Patients Say!</h1>
                 </div>
@@ -45,7 +45,7 @@ const Testimonials = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {reviews.map((review) => (
-                    <Testimonial key={review.id} review={review}></Testimonial>
+                    <Testimonial key={review._id} review={review}></Testimonial>
                 ))}
             </div>
         </section>

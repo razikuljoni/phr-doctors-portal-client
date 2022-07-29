@@ -10,7 +10,7 @@ const ContactUs = () => {
                 <h3 className="text-primary font-bold text-center">
                     Contact Us
                 </h3>
-                <h1 className="text-3xl text-center">Stay Connected Us</h1>
+                <h1 className="text-3xl text-center text-white">Stay Connected Us</h1>
                 <div className="w-96 mt-5">
                     <input
                         type="email"

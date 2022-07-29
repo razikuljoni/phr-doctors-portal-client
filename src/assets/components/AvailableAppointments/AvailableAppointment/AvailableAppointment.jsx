@@ -7,7 +7,11 @@ const AvailableAppointment = ({ appointment, setTreatment }) => {
             <div className="card-body items-center text-center">
                 <p className="card-title text-primary text-center">{name}</p>
                 <p className="text-red-700">
-                    {slots.length === 0 ? "Try on another Date" : ""}
+                    {slots.length === 0 ? (
+                        "Try on another Date"
+                    ) : (
+                        <p>{slots[0]}</p>
+                    )}
                 </p>
                 <p>
                     {slots.length} {slots.length > 1 ? "Slots" : "Slot"}{" "}

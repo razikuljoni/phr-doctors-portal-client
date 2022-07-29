@@ -5,7 +5,7 @@ const InfoCard = ({ img, cardTitle, cardColor }) => {
         <div
             className={`card lg:card-side shadow-xl bg-accent px-6 ${cardColor}`}
         >
-            <figure>
+            <figure className="pt-6 lg:pt-0">
                 <img src={img} alt="Album" />
             </figure>
             <div className="card-body text-white">
