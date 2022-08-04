@@ -8,6 +8,7 @@ import auth from "../../../../firebase.init";
 import { toast } from 'react-toastify';
 import Loading from "../../Loading/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../../hooks/useToken";
 const SocialLogin = () => {
     const [signInWithGoogle, googleuser, googleloading, googleerror] =
         useSignInWithGoogle(auth);
@@ -17,13 +18,14 @@ const SocialLogin = () => {
         useSignInWithGithub(auth);
     const navigate = useNavigate();
     const location = useLocation();
+    const [token ] = useToken(googleuser || facebookuser || githubuser);
 
     const from = location.state?.from?.pathname || "/";
 
     if( googleloading || facebookoading || githubloading){
         return <Loading/>
     };
-    if(googleuser || facebookuser || githubuser){
+    if(token){
         navigate(from, {replace: true});
     };
 

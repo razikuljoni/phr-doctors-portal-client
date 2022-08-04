@@ -104,6 +104,7 @@ const Navbar = () => {
                                                 const auth = getAuth();
                                                 signOut(auth)
                                                     .then(() => {
+                                                        localStorage.removeItem('accessToken');
                                                         toast(
                                                             "Sign Out Successfully!"
                                                         );

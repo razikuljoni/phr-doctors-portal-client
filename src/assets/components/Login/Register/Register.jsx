@@ -2,21 +2,21 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
+import {
+    useCreateUserWithEmailAndPassword,
+    useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 import Loading from "../../Loading/Loading";
 import { toast } from "react-toastify";
+import useToken from "../../../hooks/useToken";
 
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        cerror,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      const [updateProfile, updating, uerror] = useUpdateProfile(auth);
+    const [createUserWithEmailAndPassword, user, loading, cerror] =
+        useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, uerror] = useUpdateProfile(auth);
 
     const {
         register,
@@ -24,22 +24,36 @@ const Register = () => {
         watch,
         formState: { errors },
     } = useForm();
+    const [token] = useToken(user);
 
     const from = location.state?.from?.pathname || "/";
-    if(loading || updating){
-        return <div className="mt-52"><Loading/> </div>
-    };
-    if(user){
-        navigate(from, {replace: true})
-    };
+    if (cerror || uerror) {
+        console.log(uerror.message);
+        return cerror || uerror;
+    }
+    if (loading || updating) {
+        return (
+            <div className="mt-52">
+                <Loading />{" "}
+            </div>
+        );
+    }
+    if (token) {
+        navigate(from, { replace: true });
+    }
     const onSubmit = async (data) => {
-        await createUserWithEmailAndPassword(data.email, data.password).then(() =>{
-            toast("User Created Successfully!");
+        await createUserWithEmailAndPassword(data.email, data.password).then(
+            () => {
+                toast.success("User Created Successfully!");
+            }
+        );
+        await updateProfile({
+            displayName: data.name,
+            photoURL: data.photoURL,
         });
-        await updateProfile({displayName: data.name, photoURL: data.photoURL });
     };
     return (
-        <div className="flex  justify-center items-center">
+        <div className="flex justify-center items-center">
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title items-center">Log In</h2>
@@ -154,7 +168,10 @@ const Register = () => {
                                 </span>
                             </label>
                         </div>
-                        <p className="text-red-600">{cerror || uerror && cerror?.message || uerror?.message}</p>
+                        <p className="text-red-600">
+                            {cerror && cerror?.message}
+                            {uerror && uerror?.message}
+                        </p>
                         <input
                             className="btn btn-active btn-primary w-full"
                             type="submit"

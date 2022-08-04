@@ -8,9 +8,11 @@ import Appointment from "./pages/Appointment/Appointment";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Appointments from "./assets/components/Dashboard/Appointments/Appointments";
 import Review from "./assets/components/Dashboard/Review/Review";
+import AllUsers from "./assets/components/AllUsers/AllUsers/AllUsers";
+import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
 
 function App() {
     return (
@@ -35,8 +37,16 @@ function App() {
                         </RequireAuth>
                     }
                 >
-                    <Route index element={<Appointments/>}/>
-                    <Route path="review" element={<Review/>}/>
+                    <Route index element={<Appointments />} />
+                    <Route path="review" element={<Review />} />
+                    <Route
+                        path="users"
+                        element={
+                            <RequireAdmin>
+                                <AllUsers />
+                            </RequireAdmin>
+                        }
+                    />
                 </Route>
                 <Route path="/register" element={<RegisterPage />}></Route>
             </Routes>
