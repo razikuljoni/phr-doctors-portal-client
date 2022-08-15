@@ -1,6 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Loading/Loading";
 import AppointmentModal from "../AppointmentModal/AppointmentModal";
 import AvailableAppointment from "../AvailableAppointment/AvailableAppointment";
@@ -11,15 +11,15 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     const formatedDate = format(selectedDate, "PP");
     // useEffect(() => {
-    //     // fetch("http://localhost:8000/service")
-    // fetch(`http://localhost:8000/available?date=${formatedDate}`)
+    //     // fetch("https://phr-doctors-portal.herokuapp.com/service")
+    // fetch(`https://phr-doctors-portal.herokuapp.com/available?date=${formatedDate}`)
     //     .then((res) => res.json())
     //         .then((data) => setAppointments(data));
     // }, [formatedDate]);
 
     // Queries
     const { isLoading, isError, data: appointments, error, refetch } = useQuery(["available", formatedDate], () =>
-        fetch(`http://localhost:8000/available?date=${formatedDate}`)
+        fetch(`https://phr-doctors-portal.herokuapp.com/available?date=${formatedDate}`)
             .then((res) => res.json())
             .then((data) => {
                 return data;

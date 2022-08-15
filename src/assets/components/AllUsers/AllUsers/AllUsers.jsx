@@ -8,9 +8,9 @@ const AllUsers = () => {
         isLoading,
         error,
         data: users,
-        refetch
+        refetch,
     } = useQuery(["users"], () =>
-        fetch("http://localhost:8000/user", {
+        fetch("https://phr-doctors-portal.herokuapp.com/user", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,11 +26,15 @@ const AllUsers = () => {
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
+                    {error.message}
                     <thead>
                         <tr>
                             <th>
                                 <label>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                    />
                                 </label>
                             </th>
                             <th>Name</th>
@@ -42,8 +46,11 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {users?.map((user) => (
-                            <UsersRow key={user._id} user={user}
-                            refetch={refetch}></UsersRow>
+                            <UsersRow
+                                key={user._id}
+                                user={user}
+                                refetch={refetch}
+                            ></UsersRow>
                         ))}
                     </tbody>
                 </table>

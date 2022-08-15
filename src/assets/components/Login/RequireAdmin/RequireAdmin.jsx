@@ -15,7 +15,6 @@ const RequireAdmin = ({ children }) => {
     if (error) {
         toast("Error occured!");
     }
-    console.log(adminLoading);
     if (loading || adminLoading) {
         return (
             <div className="mt-52">

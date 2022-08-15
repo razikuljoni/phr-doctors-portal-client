@@ -3,6 +3,7 @@ import cavity from "../../../images/cavity.png";
 import fluoride from "../../../images/fluoride.png";
 import treatment from "../../../images/treatment.png";
 import whitening from "../../../images/whitening.png";
+import PrimaryBtn from "../../PirmaryBtn/PrimaryBtn";
 import Service from "../Service/Service";
 const Services = () => {
     const services = [
@@ -60,9 +61,7 @@ const Services = () => {
                             fugiat ut assumenda excepturi exercitationem quasi.
                             In deleniti eaque aut repudiandae et a id nisi.
                         </p>
-                        <button className="btn btn-primary text-white font-bold bg-gradient-to-r from-secondary to-primary">
-                            Get Started
-                        </button>
+                        <PrimaryBtn/>
                     </div>
                 </div>
             </div>

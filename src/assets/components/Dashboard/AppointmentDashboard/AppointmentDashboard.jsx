@@ -33,6 +33,8 @@ const AppointmentDashboard = () => {
                     </li>
                     { admin && <li>
                         <Link to="/dashboard/users">All Users</Link>
+                        <Link to="/dashboard/addDoctor">Add Doctor</Link>
+                        <Link to="/dashboard/manageDoctor">Manage Doctors</Link>
                     </li>}
                 </ul>
             </div>

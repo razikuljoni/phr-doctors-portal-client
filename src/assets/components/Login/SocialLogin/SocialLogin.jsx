@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import Loading from "../../Loading/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../../hooks/useToken";
+import { useEffect } from "react";
 const SocialLogin = () => {
     const [signInWithGoogle, googleuser, googleloading, googleerror] =
         useSignInWithGoogle(auth);
@@ -20,14 +21,17 @@ const SocialLogin = () => {
     const location = useLocation();
     const [token ] = useToken(googleuser || facebookuser || githubuser);
 
-    const from = location.state?.from?.pathname || "/";
+    useEffect(()=> {
+        const from = location.state?.from?.pathname || "/";
+        if(token){
+            navigate(from, {replace: true});
+        };
+    },[location.state?.from?.pathname, navigate, token]);
 
     if( googleloading || facebookoading || githubloading){
         return <Loading/>
     };
-    if(token){
-        navigate(from, {replace: true});
-    };
+    
 
     return (
         <>

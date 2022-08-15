@@ -1,6 +1,7 @@
 import React from "react";
 import doctor from "../../images/doctor.png";
 import appointment from "../../images/appointment.png";
+import PrimaryBtn from "../PirmaryBtn/PrimaryBtn";
 const MakeAppointment = () => {
     return (
         <section
@@ -27,9 +28,7 @@ const MakeAppointment = () => {
                     consectetur cumque eaque eos a deleniti sunt, incidunt
                     commodi.
                 </p>
-                <button className="my-5 btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary">
-                    Get Started
-                </button>
+                <PrimaryBtn/>
             </div>
         </section>
     );

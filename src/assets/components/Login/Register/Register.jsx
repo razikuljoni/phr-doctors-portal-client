@@ -21,14 +21,13 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        watch,
+        // watch,
         formState: { errors },
     } = useForm();
     const [token] = useToken(user);
 
     const from = location.state?.from?.pathname || "/";
     if (cerror || uerror) {
-        console.log(uerror.message);
         return cerror || uerror;
     }
     if (loading || updating) {

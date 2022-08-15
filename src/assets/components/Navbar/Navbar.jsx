@@ -63,7 +63,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl text-primary">
-                    Doctors Portal
+                    Dental Care
                 </a>
             </div>
             <div className="navbar-end">

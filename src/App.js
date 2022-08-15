@@ -13,6 +13,8 @@ import Appointments from "./assets/components/Dashboard/Appointments/Appointment
 import Review from "./assets/components/Dashboard/Review/Review";
 import AllUsers from "./assets/components/AllUsers/AllUsers/AllUsers";
 import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
+import AddDoctor from "./assets/components/Dashboard/AddDoctor/AddDoctor";
+import ManageDoctors from "./assets/components/Dashboard/ManageDoctors/ManageDoctors";
 
 function App() {
     return (
@@ -44,6 +46,22 @@ function App() {
                         element={
                             <RequireAdmin>
                                 <AllUsers />
+                            </RequireAdmin>
+                        }
+                    />
+                    <Route
+                        path="addDoctor"
+                        element={
+                            <RequireAdmin>
+                                <AddDoctor />
+                            </RequireAdmin>
+                        }
+                    />
+                    <Route
+                        path="manageDoctor"
+                        element={
+                            <RequireAdmin>
+                                <ManageDoctors />
                             </RequireAdmin>
                         }
                     />

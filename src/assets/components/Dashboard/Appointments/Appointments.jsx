@@ -13,7 +13,7 @@ const Appointments = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:8000/booking?patientEmail=${user.email}`, {
+            fetch(`https://phr-doctors-portal.herokuapp.com/booking?patientEmail=${user.email}`, {
                 method: "GET",
                 headers: {
                     authorization: `Bearer ${localStorage.getItem(
@@ -35,13 +35,14 @@ const Appointments = () => {
                 })
                 .then((data) => setAppointments(data));
         }
-    }, [user]);
+    }, [user, navigate]);
     if (loading) {
         return <Loading />;
     }
     return (
         <div className="overflow-x-auto">
             <table className="table w-full">
+                {error}
                 <thead>
                     <tr>
                         <th>#</th>
