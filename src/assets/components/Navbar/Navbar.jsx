@@ -86,7 +86,7 @@ const Navbar = () => {
                                                         
                                                 }
                                             /> */}
-                                            {user.photoURL !== "" ? (
+                                            {user.photoURL !== " " ? (
                                                 <img
                                                     src={user?.photoURL}
                                                     alt="user"

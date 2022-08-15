@@ -1,28 +1,98 @@
 import React from "react";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const UsersRow = ({ user, refetch }) => {
     const { email, role } = user;
 
     const makeAdmin = () => {
-        fetch(`https://phr-doctors-portal.herokuapp.com/user/admin/${email}`, {
-            method: "PUT",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-        })
-            .then((res) => {
-                if (res.status === 403) {
-                    toast.error("Access denied");
-                }
-                return res.json();
-            })
-            .then((data) => {
-                if (data.modifiedCount > 0) {
-                    refetch();
-                    toast.success(`Successfully Make Admin to ${email}`);
-                }
-            });
+        Swal.fire({
+            title: "Are you sure?",
+            text: `${
+                role === "Admin"
+                    ? `You Want to Make User ${email}?`
+                    : `You Want to Make Admin ${email}?`
+            }`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: `${
+                role === "Admin" ? `Yes, Make User!` : `Yes, Make Admin!`
+            }`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:8000/user/admin/${email}`, {
+                    method: "PUT",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                })
+                    .then((res) => {
+                        if (res.status === 403) {
+                            toast.error("Access denied");
+                        }
+                        return res.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                "Success!",
+                                `${
+                                    role === "Admin"
+                                        ? `Successfully Make User to ${email}!`
+                                        : `Successfully Make Admin to ${email}!`
+                                }`,
+                                "success"
+                            );
+                        }
+                    });
+            }
+        });
+    };
+
+    const deleteUser = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `You Want to Delete User ${email}?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delete!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:8000/user/admin/${email}`, {
+                    method: "DELETE",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                })
+                    .then((res) => {
+                        if (res.status === 403) {
+                            toast.error("Access denied");
+                        }
+                        return res.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                "Success!",
+                                `Successfully Deleted User ${email}`,
+                                "success"
+                            );
+                        }
+                    });
+            }
+        });
     };
     return (
         <tr>
@@ -45,10 +115,12 @@ const UsersRow = ({ user, refetch }) => {
                         <div className="font-bold">Hart Hagerty</div>
                         <span
                             className={`badge badge-ghost ${
-                                role && "bg-green-500 text-white"
+                                role === "Admin"
+                                    ? "bg-green-500 text-white"
+                                    : "text-balck"
                             }`}
                         >
-                            {role ? `${role}` : "User"}
+                            {role && `${role}`}
                         </span>
                     </div>
                 </div>
@@ -56,7 +128,10 @@ const UsersRow = ({ user, refetch }) => {
             <td className="badge badge-ghost mt-7">{email}</td>
             <th>
                 {role === "Admin" ? (
-                    <button className="btn btn-sm bg-green-500 text-white">
+                    <button
+                        onClick={makeAdmin}
+                        className="btn btn-sm bg-green-500 text-white"
+                    >
                         Make User
                     </button>
                 ) : (
@@ -69,7 +144,10 @@ const UsersRow = ({ user, refetch }) => {
                 )}
             </th>
             <th>
-                <button className="btn btn-sm bg-red-500 text-white">
+                <button
+                    onClick={deleteUser}
+                    className="btn btn-sm bg-red-500 text-white"
+                >
                     Remove
                 </button>
             </th>
