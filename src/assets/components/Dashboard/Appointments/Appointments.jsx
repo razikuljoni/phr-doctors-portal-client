@@ -13,14 +13,17 @@ const Appointments = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://phr-doctors-portal.herokuapp.com/booking?patientEmail=${user.email}`, {
-                method: "GET",
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-            })
+            fetch(
+                `https://phr-doctors-portal.herokuapp.com/booking?patientEmail=${user.email}`,
+                {
+                    method: "GET",
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                }
+            )
                 .then((res) => {
                     if (res.status === 401) {
                         toast.error("UnAuthorized Access!");
@@ -41,15 +44,18 @@ const Appointments = () => {
     }
     return (
         <div className="overflow-x-auto">
+            <h1 className="text-2xl text-primary text-center my-5">
+                Your All Appointments
+            </h1>
             <table className="table w-full">
                 {error}
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Patient Name</th>
-                        <th>Treatment</th>
-                        <th>Date</th>
-                        <th>Slot</th>
+                        <th>Treatment Name</th>
+                        <th>Appointment Date</th>
+                        <th>Time Slot</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,7 +63,7 @@ const Appointments = () => {
                         return (
                             <tr
                                 key={index}
-                                className={`${index % 2 === 0 ? "active" : ""}`}
+                                className={`${index % 2 !== 0 ? "active" : ""}`}
                             >
                                 <th>{index + 1}</th>
                                 <td>{appointment?.patientName}</td>

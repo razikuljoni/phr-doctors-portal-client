@@ -12,7 +12,6 @@ const AppointmentDashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* <!-- Page content here --> */}
-                <h1 className="text-2xl text-primary text-center">Dashboard</h1>
                 <Outlet />
                 <label
                     htmlFor="my-drawer-2"

@@ -22,11 +22,13 @@ const AllUsers = () => {
     }
     return (
         <div>
-            <div className="text-3xl">All Users {users?.length}</div>
+            <h1 className="text-2xl text-primary text-center my-5">
+                Total {users?.length} Users
+            </h1>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    {error.message}
+                    {error?.message}
                     <thead>
                         <tr>
                             <th>

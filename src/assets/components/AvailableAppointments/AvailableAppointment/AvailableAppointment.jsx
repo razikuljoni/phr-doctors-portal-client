@@ -5,18 +5,18 @@ const AvailableAppointment = ({ appointment, setTreatment }) => {
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <div className="card-body items-center text-center">
-                <p className="card-title text-primary text-center">{name}</p>
-                <p className="text-red-700">
+                <div className="card-title text-primary text-center">{name}</div>
+                <div className="text-red-700">
                     {slots.length === 0 ? (
                         "Try on another Date"
                     ) : (
                         <p>{slots[0]}</p>
                     )}
-                </p>
-                <p>
+                </div>
+                <div>
                     {slots.length} {slots.length > 1 ? "Slots" : "Slot"}{" "}
                     Available
-                </p>
+                </div>
                 <div className="card-actions justify-center">
                     <label
                         htmlFor="my-modal"

@@ -60,7 +60,9 @@ const ManageDoctors = () => {
     }
     return (
         <div>
-            Manage {doctors?.length} Doctors
+            <h1 className="text-2xl text-primary text-center my-5">
+                Total {doctors?.length} Doctors
+            </h1>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

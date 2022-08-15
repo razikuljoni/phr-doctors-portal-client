@@ -67,7 +67,11 @@ const AddDoctor = () => {
     };
     return (
         <div className="flex justify-center items-center">
+           
             <form className="w-80" onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="text-2xl text-primary text-center my-5">
+                Add a new Doctor
+            </h1>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">What is your name?</span>
