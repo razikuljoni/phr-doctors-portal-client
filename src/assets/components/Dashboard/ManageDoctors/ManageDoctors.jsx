@@ -56,7 +56,11 @@ const ManageDoctors = () => {
     };
 
     if (isLoading) {
-        return <Loading />;
+        return (
+            <div className="mt-40">
+                <Loading />
+            </div>
+        );
     }
     return (
         <div>

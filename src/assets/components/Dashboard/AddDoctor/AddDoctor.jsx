@@ -17,7 +17,7 @@ const AddDoctor = () => {
     );
 
     if (isLoading) {
-        return <Loading />;
+        return <div className="mt-40"><Loading /></div>;
     }
     const imageStorageKey = "21b1ab41011f8fb9349069c6df59f07a";
 

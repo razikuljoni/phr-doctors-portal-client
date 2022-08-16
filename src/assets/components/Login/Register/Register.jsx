@@ -27,6 +27,7 @@ const Register = () => {
     const [token] = useToken(user);
 
     const from = location.state?.from?.pathname || "/";
+    const imageStorageKey = "21b1ab41011f8fb9349069c6df59f07a";
     if (cerror || uerror) {
         return cerror || uerror;
     }
@@ -40,16 +41,37 @@ const Register = () => {
     if (token) {
         navigate(from, { replace: true });
     }
-    const onSubmit = async (data) => {
-        await createUserWithEmailAndPassword(data.email, data.password).then(
-            () => {
-                toast.success("User Created Successfully!");
-            }
-        );
-        await updateProfile({
-            displayName: data.name,
-            photoURL: data.photoURL,
-        });
+    const onSubmit = (data) => {
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((result) => {
+                console.log(result)
+                if (result.success) {
+                    run().catch(console.dir);
+                }
+                async function run() {
+                    await createUserWithEmailAndPassword(
+                        data.email,
+                        data.password
+                    ).then(() => {
+                        toast.success("User Created Successfully!");
+                    });
+                    await updateProfile({
+                        displayName: data.name,
+                        photoURL: result.data?.url,
+                    });
+                }
+            });
     };
     return (
         <div className="flex justify-center items-center">
@@ -82,7 +104,7 @@ const Register = () => {
                                 </span>
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        {/* <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">
                                     Your Photo URL?
@@ -99,8 +121,8 @@ const Register = () => {
                                     {errors.name?.type === "required" &&
                                         "Full Name Required"}
                                 </span>
-                            </label> */}
-                        </div>
+                            </label> 
+                        </div> */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">
@@ -163,6 +185,32 @@ const Register = () => {
                                     )}
                                     {errors.password?.type === "pattern" && (
                                         <span>{errors.password?.message} </span>
+                                    )}
+                                </span>
+                            </label>
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">
+                                    Profile Picture
+                                </span>
+                            </label>
+                            <input
+                                type="file"
+                                className="input input-bordered pt-1.5 input-primary w-full max-w-xs"
+                                autoComplete="off"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                        message: "Image is required",
+                                    },
+                                })}
+                            />
+                            <label className="label">
+                                <span className="label-text-alt text-red-600">
+                                    {errors.image?.type === "required" && (
+                                        <span>{errors.image?.message} </span>
                                     )}
                                 </span>
                             </label>
