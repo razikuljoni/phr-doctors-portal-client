@@ -127,7 +127,7 @@ const Testimonials = () => {
                                                 </div>
                                                 <div>
                                                     <div class="rating">
-                                                        <input
+                                                        {/* <input
                                                             type="radio"
                                                             name="rating-4"
                                                             class="mask mask-star-2 bg-green-500"
@@ -152,12 +152,29 @@ const Testimonials = () => {
                                                             type="radio"
                                                             name="rating-4"
                                                             class="mask mask-star-2 bg-green-500"
-                                                        />
+                                                        /> */}
                                                         <Rating
-                                                        initialRating={3.5}
-                                                            emptySymbol="fa fa-star-o fa-2x"
-                                                            fullSymbol="fa fa-star fa-2x"
+                                                            initialRating={Math.ceil(
+                                                                Math.random() *
+                                                                    3 +
+                                                                    2
+                                                            )}
+                                                            emptySymbol={
+                                                                <input
+                                                                    type="radio"
+                                                                    name="rating-7"
+                                                                    class="mask mask-star-2 bg-orange-200"
+                                                                />
+                                                            }
+                                                            fullSymbol={
+                                                                <input
+                                                                    type="radio"
+                                                                    name="rating-7"
+                                                                    class="mask mask-star-2 bg-orange-500"
+                                                                />
+                                                            }
                                                             fractions={2}
+                                                            readonly
                                                         />
                                                     </div>
                                                     <br />
