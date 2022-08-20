@@ -10,7 +10,7 @@ const RequireAuth = ({children}) => {
     const location = useLocation();
 
     if(error){
-        toast("Error occured!");
+        toast.error("Error occured!");
     };
     if(loading){
         return <div className='mt-52'><Loading/></div>

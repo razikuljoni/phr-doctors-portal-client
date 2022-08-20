@@ -16,6 +16,7 @@ import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
 import AddDoctor from "./assets/components/Dashboard/AddDoctor/AddDoctor";
 import ManageDoctors from "./assets/components/Dashboard/ManageDoctors/ManageDoctors";
 import AboutPage from "./pages/AboutPage/AboutPage";
+import Contact from "./pages/Contact/Contact";
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
                     />
                 </Route>
                 <Route path="/register" element={<RegisterPage />}></Route>
+                <Route path="/contact" element={<Contact />}></Route>
                 <Route path="/about" element={<AboutPage />}></Route>
             </Routes>
             <ToastContainer />

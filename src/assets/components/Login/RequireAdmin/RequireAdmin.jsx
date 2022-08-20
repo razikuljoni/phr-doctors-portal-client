@@ -13,7 +13,7 @@ const RequireAdmin = ({ children }) => {
     const location = useLocation();
 
     if (error) {
-        toast("Error occured!");
+        toast.error("Error occured!");
     }
     if (loading || adminLoading) {
         return (
@@ -25,7 +25,7 @@ const RequireAdmin = ({ children }) => {
     if (!user || !admin) {
         signOut(auth);
         toast.error("You don't have Access");
-        toast("Sign out Successfully");
+        toast.success("Sign out Successfully");
         return (
             <Navigate to="/login" state={{ from: location }} replace></Navigate>
         );

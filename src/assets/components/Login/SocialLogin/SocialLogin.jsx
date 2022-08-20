@@ -40,7 +40,7 @@ const SocialLogin = () => {
             <button
                 className="btn btn-outline btn-primary"
                 onClick={() => signInWithGoogle().then(() =>{
-                    toast("Google SignIn Successfull!")
+                    toast.success("Google SignIn Successfull!")
                 })}
             >
                 Sign In with Google
@@ -48,7 +48,7 @@ const SocialLogin = () => {
             <button
                 className="btn btn-outline btn-secondary"
                 onClick={() => signInWithFacebook().then(() =>{
-                    toast("Facebook SignIn Successfull!")
+                    toast.success("Facebook SignIn Successfull!")
                 })}
             >
                 Sign In with Facebook
@@ -56,7 +56,7 @@ const SocialLogin = () => {
             <button
                 className="btn btn-outline btn-accent"
                 onClick={() => signInWithGithub().then(() =>{
-                    toast("Github SignIn Successfull!")
+                    toast.success("Github SignIn Successfull!")
                 })}
             >
                 Sign In with Github

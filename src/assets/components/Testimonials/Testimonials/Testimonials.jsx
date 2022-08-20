@@ -1,9 +1,9 @@
 import React from "react";
+import Rating from "react-rating";
 import quote from "../../../icons/quote.svg";
 import people1 from "../../../images/people1.png";
 import people2 from "../../../images/people2.png";
 import people3 from "../../../images/people3.png";
-import Rating from "react-rating";
 
 import { format } from "date-fns";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
@@ -126,32 +126,32 @@ const Testimonials = () => {
                                                     <p>{review.location}</p>
                                                 </div>
                                                 <div>
-                                                    <div class="rating">
+                                                    <div className="rating">
                                                         {/* <input
                                                             type="radio"
                                                             name="rating-4"
-                                                            class="mask mask-star-2 bg-green-500"
+                                                            className="mask mask-star-2 bg-green-500"
                                                         />
                                                         <input
                                                             type="radio"
                                                             name="rating-4"
-                                                            class="mask mask-star-2 bg-green-500"
+                                                            className="mask mask-star-2 bg-green-500"
                                                             checked
                                                         />
                                                         <input
                                                             type="radio"
                                                             name="rating-4"
-                                                            class="mask mask-star-2 bg-green-500"
+                                                            className="mask mask-star-2 bg-green-500"
                                                         />
                                                         <input
                                                             type="radio"
                                                             name="rating-4"
-                                                            class="mask mask-star-2 bg-green-500"
+                                                            className="mask mask-star-2 bg-green-500"
                                                         />
                                                         <input
                                                             type="radio"
                                                             name="rating-4"
-                                                            class="mask mask-star-2 bg-green-500"
+                                                            className="mask mask-star-2 bg-green-500"
                                                         /> */}
                                                         <Rating
                                                             initialRating={Math.ceil(
@@ -163,14 +163,14 @@ const Testimonials = () => {
                                                                 <input
                                                                     type="radio"
                                                                     name="rating-7"
-                                                                    class="mask mask-star-2 bg-orange-200"
+                                                                    className="mask mask-star-2 bg-orange-200"
                                                                 />
                                                             }
                                                             fullSymbol={
                                                                 <input
                                                                     type="radio"
                                                                     name="rating-7"
-                                                                    class="mask mask-star-2 bg-orange-500"
+                                                                    className="mask mask-star-2 bg-orange-500"
                                                                 />
                                                             }
                                                             fractions={2}

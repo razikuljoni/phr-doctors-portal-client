@@ -22,9 +22,6 @@ const Navbar = () => {
                 <Link to="/appointment">Appointments</Link>
             </li>
             <li>
-                <Link to="/review">Reviews</Link>
-            </li>
-            <li>
                 <Link to="/contact">Contact</Link>
             </li>
             <li>
@@ -110,12 +107,12 @@ const Navbar = () => {
                                                         localStorage.removeItem(
                                                             "accessToken"
                                                         );
-                                                        toast(
+                                                        toast.success(
                                                             "Sign Out Successfully!"
                                                         );
                                                     })
                                                     .catch((error) => {
-                                                        toast(error.message);
+                                                        toast.error(error.message);
                                                     });
                                             }}
                                         >

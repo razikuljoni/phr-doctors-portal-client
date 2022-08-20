@@ -1,68 +1,33 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-// import "./AboutPage.css";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper";
+import Footer from "../../assets/components/Footer/Footer";
 
 const AboutPage = () => {
-    
     return (
         <>
-      <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-          loop: true,
-          
-        }}
-        autoplay= {true}
-        pagination={{ 
-            delay: 4000,
-            disableOnInteraction: false,
-            stopOnLastSlide: false,
-        }}
-        modules={[EffectCoverflow, Pagination, Autoplay]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-      </Swiper>
-    </>
+            <div className="flex justify-center items-center">
+                <div>
+                    <h1 className="text-3xl text-primary text-center">
+                        This is a dentist website
+                    </h1>
+                    <p>Where you can do different things like as</p>
+                    <ul style={{listStyleType: "circle"}}>
+                        <li>Login</li>
+                        <li>Register</li>
+                        <li>Take an appointment</li>
+                        <li>See your all appointments</li>
+                    </ul>
+                    <p>Admin Can do lot more things like</p>
+                    <ul style={{listStyleType: "circle"}}>
+                        <li>See all ysers</li>
+                        <li>Make Someone admin</li>
+                        <li>Remove from admin list</li>
+                        <li>Add Doctor</li>
+                        <li>Remove Doctor</li>
+                    </ul>
+                </div>
+            </div>
+            <Footer />
+        </>
     );
 };
 
