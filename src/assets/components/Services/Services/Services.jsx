@@ -5,6 +5,8 @@ import treatment from "../../../images/treatment.png";
 import whitening from "../../../images/whitening.png";
 import PrimaryBtn from "../../PirmaryBtn/PrimaryBtn";
 import Service from "../Service/Service";
+import Slider from "react-slick";
+
 const Services = () => {
     const services = [
         {
@@ -28,7 +30,35 @@ const Services = () => {
                 "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non repudiandae consequatur sint eligendi! Nesciunt tenetur fuga omnis incidunt maxime in tempore accusamus magni, suscipit animi error et itaque perferendis veniam.",
             img: whitening,
         },
+        {
+            _id: 4,
+            name: "Cavity Protection",
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non repudiandae consequatur sint eligendi! Nesciunt tenetur fuga omnis incidunt maxime in tempore accusamus magni, suscipit animi error et itaque perferendis veniam.",
+            img: whitening,
+        },
+        {
+            _id: 5,
+            name: "Pediatric Dental",
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non repudiandae consequatur sint eligendi! Nesciunt tenetur fuga omnis incidunt maxime in tempore accusamus magni, suscipit animi error et itaque perferendis veniam.",
+            img: whitening,
+        },
+        {
+            _id: 6,
+            name: "Oral Surgery",
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non repudiandae consequatur sint eligendi! Nesciunt tenetur fuga omnis incidunt maxime in tempore accusamus magni, suscipit animi error et itaque perferendis veniam.",
+            img: whitening,
+        },
     ];
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+    };
     return (
         <div className="my-20 mx-12">
             <div className="text-center pb-14">
@@ -61,7 +91,7 @@ const Services = () => {
                             fugiat ut assumenda excepturi exercitationem quasi.
                             In deleniti eaque aut repudiandae et a id nisi.
                         </p>
-                        <PrimaryBtn/>
+                        <PrimaryBtn />
                     </div>
                 </div>
             </div>

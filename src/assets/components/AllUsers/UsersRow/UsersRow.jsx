@@ -2,8 +2,8 @@ import React from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-const UsersRow = ({ user, refetch }) => {
-    const { email, role } = user;
+const UsersRow = ({ user, refetch, index }) => {
+    const { displayName, email, role, photoURL } = user;
 
     const makeAdmin = () => {
         Swal.fire({
@@ -96,23 +96,23 @@ const UsersRow = ({ user, refetch }) => {
     };
     return (
         <tr>
-            <th>
-                <label>
-                    <input type="checkbox" className="checkbox" />
-                </label>
-            </th>
+            <th>{index + 1}</th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                             <img
-                                src="https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg"
+                                src={
+                                    photoURL
+                                        ? photoURL
+                                        : "https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg"
+                                }
                                 alt="Avatar Tailwind CSS Component"
                             />
                         </div>
                     </div>
                     <div>
-                        <div className="font-bold">Hart Hagerty</div>
+                        <div className="font-bold">{displayName}</div>
                         <span
                             className={`badge badge-ghost ${
                                 role === "Admin"

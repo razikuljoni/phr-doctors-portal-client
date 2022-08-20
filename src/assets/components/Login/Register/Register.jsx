@@ -1,15 +1,15 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import SocialLogin from "../SocialLogin/SocialLogin";
-import { useForm } from "react-hook-form";
+import React, { useEffect } from "react";
 import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import auth from "../../../../firebase.init";
-import Loading from "../../Loading/Loading";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import auth from "../../../../firebase.init";
 import useToken from "../../../hooks/useToken";
+import Loading from "../../Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -25,8 +25,13 @@ const Register = () => {
         formState: { errors },
     } = useForm();
     const [token] = useToken(user);
-
     const from = location.state?.from?.pathname || "/";
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, navigate, from]);
+
     const imageStorageKey = "21b1ab41011f8fb9349069c6df59f07a";
     if (cerror || uerror) {
         return cerror || uerror;
@@ -38,9 +43,7 @@ const Register = () => {
             </div>
         );
     }
-    if (token) {
-        navigate(from, { replace: true });
-    }
+
     const onSubmit = (data) => {
         const image = data.image[0];
         const formData = new FormData();
@@ -55,7 +58,7 @@ const Register = () => {
                 return res.json();
             })
             .then((result) => {
-                console.log(result)
+                console.log(result);
                 if (result.success) {
                     run().catch(console.dir);
                 }

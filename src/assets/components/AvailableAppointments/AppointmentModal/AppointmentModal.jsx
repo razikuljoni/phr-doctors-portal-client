@@ -20,7 +20,7 @@ const AppointmentModal = ({ selectedDate, treatment, setTreatment, refetch }) =>
             patientEmail: user.email,
             patientPhone: e.target.phone.value,
         };
-        fetch("https://phr-doctors-portal.herokuapp.com/booking", {
+        fetch("http://localhost:8000/booking", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

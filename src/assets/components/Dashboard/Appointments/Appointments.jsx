@@ -14,7 +14,7 @@ const Appointments = () => {
     useEffect(() => {
         if (user) {
             fetch(
-                `https://phr-doctors-portal.herokuapp.com/booking?patientEmail=${user.email}`,
+                `http://localhost:8000/booking?patientEmail=${user.email}`,
                 {
                     method: "GET",
                     headers: {

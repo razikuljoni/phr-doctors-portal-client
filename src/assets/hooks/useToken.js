@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useToken = (user) => {
+const useToken = (user="joni") => {
+    console.log("user",user);
     const [token, setToken] = useState();
     useEffect(() => {
         const email = user?.user?.email;
-        const currentUser = { email };
+        const displayName = user.user?.displayName;
+        const photoURL = user?.user?.photoURL;
+        const currentUser = {
+            displayName,
+            email,
+            photoURL,
+        };
         if (email) {
-            fetch(`https://phr-doctors-portal.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:8000/user/${email}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",

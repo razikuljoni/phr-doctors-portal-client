@@ -15,6 +15,8 @@ import AllUsers from "./assets/components/AllUsers/AllUsers/AllUsers";
 import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
 import AddDoctor from "./assets/components/Dashboard/AddDoctor/AddDoctor";
 import ManageDoctors from "./assets/components/Dashboard/ManageDoctors/ManageDoctors";
+import AboutPage from "./pages/AboutPage/AboutPage";
+
 
 function App() {
     return (
@@ -67,6 +69,7 @@ function App() {
                     />
                 </Route>
                 <Route path="/register" element={<RegisterPage />}></Route>
+                <Route path="/about" element={<AboutPage />}></Route>
             </Routes>
             <ToastContainer />
         </>

@@ -11,15 +11,15 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     const formatedDate = format(selectedDate, "PP");
     // useEffect(() => {
-    //     // fetch("https://phr-doctors-portal.herokuapp.com/service")
-    // fetch(`https://phr-doctors-portal.herokuapp.com/available?date=${formatedDate}`)
+    //     // fetch("http://localhost:8000/service")
+    // fetch(`http://localhost:8000/available?date=${formatedDate}`)
     //     .then((res) => res.json())
     //         .then((data) => setAppointments(data));
     // }, [formatedDate]);
 
     // Queries
     const { isLoading, isError, data: appointments, error, refetch } = useQuery(["available", formatedDate], () =>
-        fetch(`https://phr-doctors-portal.herokuapp.com/available?date=${formatedDate}`)
+        fetch(`http://localhost:8000/available?date=${formatedDate}`)
             .then((res) => res.json())
             .then((data) => {
                 return data;
