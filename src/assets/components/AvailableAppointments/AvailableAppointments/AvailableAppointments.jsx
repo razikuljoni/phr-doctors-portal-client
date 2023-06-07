@@ -11,15 +11,23 @@ const AvailableAppointments = ({ selectedDate }) => {
 
     const formatedDate = format(selectedDate, "PP");
     // useEffect(() => {
-    //     // fetch("http://localhost:8000/service")
-    // fetch(`http://localhost:8000/available?date=${formatedDate}`)
+    //     // fetch("https://doctors-portal-server-one-lilac.vercel.app/service")
+    // fetch(`https://doctors-portal-server-one-lilac.vercel.app/available?date=${formatedDate}`)
     //     .then((res) => res.json())
     //         .then((data) => setAppointments(data));
     // }, [formatedDate]);
 
     // Queries
-    const { isLoading, isError, data: appointments, error, refetch } = useQuery(["available", formatedDate], () =>
-        fetch(`http://localhost:8000/available?date=${formatedDate}`)
+    const {
+        isLoading,
+        isError,
+        data: appointments,
+        error,
+        refetch,
+    } = useQuery(["available", formatedDate], () =>
+        fetch(
+            `https://doctors-portal-server-one-lilac.vercel.app/available?date=${formatedDate}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 return data;

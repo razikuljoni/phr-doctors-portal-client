@@ -13,11 +13,17 @@ const AddDoctor = () => {
     } = useForm();
 
     const { data: services, isLoading } = useQuery(["services"], () =>
-        fetch(`http://localhost:8000/service`).then((res) => res.json())
+        fetch(
+            `https://doctors-portal-server-one-lilac.vercel.app/service`
+        ).then((res) => res.json())
     );
 
     if (isLoading) {
-        return <div className="mt-40"><Loading /></div>;
+        return (
+            <div className="mt-40">
+                <Loading />
+            </div>
+        );
     }
     const imageStorageKey = "21b1ab41011f8fb9349069c6df59f07a";
 
@@ -26,7 +32,7 @@ const AddDoctor = () => {
         const formData = new FormData();
         formData.append("image", image);
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-      
+
         fetch(url, {
             method: "POST",
             body: formData,
@@ -43,16 +49,19 @@ const AddDoctor = () => {
                         speciality: data.speciality,
                         img,
                     };
-                    fetch("http://localhost:8000/doctor", {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json",
-                            authorization: `Bearer ${localStorage.getItem(
-                                "accessToken"
-                            )}`,
-                        },
-                        body: JSON.stringify(doctor),
-                    })
+                    fetch(
+                        "https://doctors-portal-server-one-lilac.vercel.app/doctor",
+                        {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json",
+                                authorization: `Bearer ${localStorage.getItem(
+                                    "accessToken"
+                                )}`,
+                            },
+                            body: JSON.stringify(doctor),
+                        }
+                    )
                         .then((response) => response.json())
                         .then((inserted) => {
                             if (inserted.insertedId) {
@@ -67,11 +76,10 @@ const AddDoctor = () => {
     };
     return (
         <div className="flex justify-center items-center">
-           
             <form className="w-80" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text-2xl text-primary text-center my-5">
-                Add a new Doctor
-            </h1>
+                <h1 className="text-2xl text-primary text-center my-5">
+                    Add a new Doctor
+                </h1>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">What is your name?</span>

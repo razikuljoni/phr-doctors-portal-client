@@ -10,7 +10,7 @@ const ManageDoctors = () => {
         isLoading,
         refetch,
     } = useQuery(["doctors"], () =>
-        fetch("http://localhost:8000/doctor", {
+        fetch("https://doctors-portal-server-one-lilac.vercel.app/doctor", {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -28,14 +28,17 @@ const ManageDoctors = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/doctor/${email}`, {
-                    method: "DELETE",
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem(
-                            "accessToken"
-                        )}`,
-                    },
-                })
+                fetch(
+                    `https://doctors-portal-server-one-lilac.vercel.app/doctor/${email}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
+                    }
+                )
                     .then((res) => res.json())
                     .then((result) => {
                         console.log(result);

@@ -1,10 +1,15 @@
 import { format } from "date-fns";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import auth from "../../../../firebase.init";
 
-const AppointmentModal = ({ selectedDate, treatment, setTreatment, refetch }) => {
+const AppointmentModal = ({
+    selectedDate,
+    treatment,
+    setTreatment,
+    refetch,
+}) => {
     const [user, loading, error] = useAuthState(auth);
     const { _id, name } = treatment;
     const formatedDate = format(selectedDate, "PP");
@@ -20,7 +25,7 @@ const AppointmentModal = ({ selectedDate, treatment, setTreatment, refetch }) =>
             patientEmail: user.email,
             patientPhone: e.target.phone.value,
         };
-        fetch("http://localhost:8000/booking", {
+        fetch("https://doctors-portal-server-one-lilac.vercel.app/booking", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -29,11 +34,15 @@ const AppointmentModal = ({ selectedDate, treatment, setTreatment, refetch }) =>
         })
             .then((res) => res.json())
             .then((data) => {
-                if(data.success){
-                    toast.success(`Booked Appointment on ${formatedDate} at ${slot}`);
-                } else{
-                    toast.error(`Already have an appointment on ${data?.booking?.date} at ${data.booking?.slot}`)
-                };
+                if (data.success) {
+                    toast.success(
+                        `Booked Appointment on ${formatedDate} at ${slot}`
+                    );
+                } else {
+                    toast.error(
+                        `Already have an appointment on ${data?.booking?.date} at ${data.booking?.slot}`
+                    );
+                }
                 refetch();
                 setTreatment(null);
             });

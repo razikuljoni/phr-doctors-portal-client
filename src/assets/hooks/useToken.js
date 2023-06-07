@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useToken = (user="joni") => {
-    console.log("user",user);
+const useToken = (user = "joni") => {
+    console.log("user", user);
     const [token, setToken] = useState();
     useEffect(() => {
         const email = user?.user?.email;
@@ -14,7 +14,7 @@ const useToken = (user="joni") => {
             photoURL,
         };
         if (email) {
-            fetch(`http://localhost:8000/user/${email}`, {
+            fetch(`https://doctors-portal-server-one-lilac.vercel.app/user/${email}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",

@@ -22,14 +22,17 @@ const UsersRow = ({ user, refetch, index }) => {
             }`,
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/user/admin/${email}`, {
-                    method: "PUT",
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem(
-                            "accessToken"
-                        )}`,
-                    },
-                })
+                fetch(
+                    `https://doctors-portal-server-one-lilac.vercel.app/user/admin/${email}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
+                    }
+                )
                     .then((res) => {
                         if (res.status === 403) {
                             toast.error("Access denied");
@@ -66,14 +69,17 @@ const UsersRow = ({ user, refetch, index }) => {
             confirmButtonText: "Yes, Delete!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/user/admin/${email}`, {
-                    method: "DELETE",
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem(
-                            "accessToken"
-                        )}`,
-                    },
-                })
+                fetch(
+                    `https://doctors-portal-server-one-lilac.vercel.app/user/admin/${email}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
+                    }
+                )
                     .then((res) => {
                         if (res.status === 403) {
                             toast.error("Access denied");

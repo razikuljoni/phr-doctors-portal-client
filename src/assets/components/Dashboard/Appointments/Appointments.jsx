@@ -14,7 +14,7 @@ const Appointments = () => {
     useEffect(() => {
         if (user) {
             fetch(
-                `http://localhost:8000/booking?patientEmail=${user.email}`,
+                `https://doctors-portal-server-one-lilac.vercel.app/booking?patientEmail=${user.email}`,
                 {
                     method: "GET",
                     headers: {

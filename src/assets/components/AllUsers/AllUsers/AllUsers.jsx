@@ -10,7 +10,7 @@ const AllUsers = () => {
         data: users,
         refetch,
     } = useQuery(["users"], () =>
-        fetch("http://localhost:8000/user", {
+        fetch("https://doctors-portal-server-one-lilac.vercel.app/user", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -31,9 +31,7 @@ const AllUsers = () => {
                     {error?.message}
                     <thead>
                         <tr>
-                            <th>
-                                #
-                            </th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Change Role</th>
