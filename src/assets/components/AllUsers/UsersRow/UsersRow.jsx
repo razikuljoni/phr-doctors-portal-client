@@ -40,7 +40,6 @@ const UsersRow = ({ user, refetch, index }) => {
                         return res.json();
                     })
                     .then((data) => {
-                        console.log(data);
                         if (data.modifiedCount > 0) {
                             refetch();
                             Swal.fire(
@@ -87,7 +86,6 @@ const UsersRow = ({ user, refetch, index }) => {
                         return res.json();
                     })
                     .then((data) => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             refetch();
                             Swal.fire(

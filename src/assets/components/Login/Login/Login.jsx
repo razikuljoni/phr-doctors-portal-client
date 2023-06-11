@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -23,20 +22,20 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || "/";
 
-    useEffect(()=>{
-        if(token){
-            navigate(from, {replace: true});
-        };
-    },[token, from, navigate]);
-    
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
+
     if (loading) {
         return (
             <div className="mt-52">
                 <Loading />
             </div>
         );
-    };
-    
+    }
+
     const onSubmit = async (data) => {
         await signInWithEmailAndPassword(data.email, data.password);
     };

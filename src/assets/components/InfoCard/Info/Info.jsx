@@ -1,8 +1,8 @@
 import React from "react";
-import InfoCard from "../InfoCard/InfoCard";
 import clock from "../../../icons/clock.svg";
 import marker from "../../../icons/marker.svg";
 import phone from "../../../icons/phone.svg";
+import InfoCard from "../InfoCard/InfoCard";
 
 const Info = () => {
     return (

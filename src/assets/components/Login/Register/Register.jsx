@@ -58,7 +58,6 @@ const Register = () => {
                 return res.json();
             })
             .then((result) => {
-                console.log(result);
                 if (result.success) {
                     run().catch(console.dir);
                 }

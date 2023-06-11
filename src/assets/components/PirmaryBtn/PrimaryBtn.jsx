@@ -6,7 +6,7 @@ const PrimaryBtn = () => {
 
     const handleClick = () => {
         navigate("/appointment");
-    }
+    };
     return (
         <button
             onClick={handleClick}

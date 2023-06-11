@@ -16,15 +16,12 @@ const ContactUs = () => {
             )
             .then(
                 (result) => {
-                    console.log(result.text);
                     if (result.text === "OK") {
                         e.target.reset();
                         toast.success("Email sent successfully!");
                     }
                 },
-                (error) => {
-                    console.log(error.text);
-                }
+                (error) => {}
             );
     }
 

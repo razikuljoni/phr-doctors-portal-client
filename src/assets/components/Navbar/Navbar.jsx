@@ -83,7 +83,10 @@ const Navbar = () => {
                                                         
                                                 }
                                             /> */}
-                                            <img src={user?.photoURL} alt="user" />
+                                            <img
+                                                src={user?.photoURL}
+                                                alt="user"
+                                            />
                                         </div>
                                     </div>
                                     <svg
@@ -112,7 +115,9 @@ const Navbar = () => {
                                                         );
                                                     })
                                                     .catch((error) => {
-                                                        toast.error(error.message);
+                                                        toast.error(
+                                                            error.message
+                                                        );
                                                     });
                                             }}
                                         >

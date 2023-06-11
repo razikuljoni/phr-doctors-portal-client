@@ -1,8 +1,8 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../../firebase.init';
 
 const AppointmentDashboard = () => {
     const [user] = useAuthState(auth);
@@ -30,11 +30,15 @@ const AppointmentDashboard = () => {
                     <li>
                         <Link to="/dashboard/review">Review</Link>
                     </li>
-                    { admin && <li>
-                        <Link to="/dashboard/users">All Users</Link>
-                        <Link to="/dashboard/addDoctor">Add Doctor</Link>
-                        <Link to="/dashboard/manageDoctor">Manage Doctors</Link>
-                    </li>}
+                    {admin && (
+                        <li>
+                            <Link to="/dashboard/users">All Users</Link>
+                            <Link to="/dashboard/addDoctor">Add Doctor</Link>
+                            <Link to="/dashboard/manageDoctor">
+                                Manage Doctors
+                            </Link>
+                        </li>
+                    )}
                 </ul>
             </div>
         </div>

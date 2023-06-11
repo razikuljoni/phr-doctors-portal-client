@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const useToken = (user = "joni") => {
-    console.log("user", user);
     const [token, setToken] = useState();
     useEffect(() => {
         const email = user?.user?.email;

@@ -1,6 +1,6 @@
 import React from "react";
-import doctor from "../../images/doctor.png";
 import appointment from "../../images/appointment.png";
+import doctor from "../../images/doctor.png";
 import PrimaryBtn from "../PirmaryBtn/PrimaryBtn";
 const MakeAppointment = () => {
     return (
@@ -28,7 +28,7 @@ const MakeAppointment = () => {
                     consectetur cumque eaque eos a deleniti sunt, incidunt
                     commodi.
                 </p>
-                <PrimaryBtn/>
+                <PrimaryBtn />
             </div>
         </section>
     );
