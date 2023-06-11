@@ -10,12 +10,12 @@ const AboutPage = () => {
                         This is a dentist website
                     </h1>
                     <p>Where you can do different things like as</p>
-                    <ul style={{listStyleType: "circle"}}>
+                    {/* <ul style={{listStyleType: "circle"}}>
                         <li>Login</li>
                         <li>Register</li>
                         <li>Take an appointment</li>
                         <li>See your all appointments</li>
-                    </ul>
+                    </ul> */}
                     <p>Admin Can do lot more things like</p>
                     <ul style={{listStyleType: "circle"}}>
                         <li>See all ysers</li>

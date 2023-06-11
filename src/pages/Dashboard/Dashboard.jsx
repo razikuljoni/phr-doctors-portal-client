@@ -4,7 +4,7 @@ import AppointmentDashboard from '../../assets/components/Dashboard/AppointmentD
 const Dashboard = () => {
     return (
         <>
-            <AppointmentDashboard/>
+            {/* <AppointmentDashboard/> */}
         </>
     );
 };

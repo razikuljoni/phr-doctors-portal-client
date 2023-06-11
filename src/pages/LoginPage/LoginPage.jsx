@@ -4,7 +4,7 @@ import Login from '../../assets/components/Login/Login/Login';
 const LoginPage = () => {
     return (
         <>
-            <Login/>
+            {/* <Login/> */}
         </>
     );
 };
