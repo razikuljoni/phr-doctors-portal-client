@@ -2,21 +2,21 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import AllUsers from "./assets/components/AllUsers/AllUsers/AllUsers";
+import AddDoctor from "./assets/components/Dashboard/AddDoctor/AddDoctor";
+import Appointments from "./assets/components/Dashboard/Appointments/Appointments";
+import ManageDoctors from "./assets/components/Dashboard/ManageDoctors/ManageDoctors";
+import Review from "./assets/components/Dashboard/Review/Review";
+import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
 import RequireAuth from "./assets/components/Login/RequireAuth/RequireAuth";
 import Navbar from "./assets/components/Navbar/Navbar";
+import AboutPage from "./pages/AboutPage/AboutPage";
 import Appointment from "./pages/Appointment/Appointment";
+import Contact from "./pages/Contact/Contact";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Appointments from "./assets/components/Dashboard/Appointments/Appointments";
-import Review from "./assets/components/Dashboard/Review/Review";
-import AllUsers from "./assets/components/AllUsers/AllUsers/AllUsers";
-import RequireAdmin from "./assets/components/Login/RequireAdmin/RequireAdmin";
-import AddDoctor from "./assets/components/Dashboard/AddDoctor/AddDoctor";
-import ManageDoctors from "./assets/components/Dashboard/ManageDoctors/ManageDoctors";
-import AboutPage from "./pages/AboutPage/AboutPage";
-import Contact from "./pages/Contact/Contact";
 
 
 function App() {
