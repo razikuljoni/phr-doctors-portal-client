@@ -1,10 +1,10 @@
-import React from 'react';
-import Login from '../../assets/components/Login/Login/Login';
+import React from "react";
+import Login from "../../assets/components/Login/Login/Login";
 
 const LoginPage = () => {
     return (
         <>
-            {/* <Login/> */}
+            <Login />
         </>
     );
 };

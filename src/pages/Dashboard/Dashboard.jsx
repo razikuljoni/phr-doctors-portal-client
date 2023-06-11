@@ -1,10 +1,10 @@
-import React from 'react';
-import AppointmentDashboard from '../../assets/components/Dashboard/AppointmentDashboard/AppointmentDashboard';
+import React from "react";
+import AppointmentDashboard from "../../assets/components/Dashboard/AppointmentDashboard/AppointmentDashboard";
 
 const Dashboard = () => {
     return (
         <>
-            {/* <AppointmentDashboard/> */}
+            <AppointmentDashboard />
         </>
     );
 };
